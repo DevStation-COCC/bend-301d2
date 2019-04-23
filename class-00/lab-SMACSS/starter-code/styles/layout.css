@@ -1,0 +1,51 @@
+nav, article, aside, footer section {
+  margin: 0 auto;
+  width: 900px;
+}
+
+nav {
+  margin-top: 25px;
+}
+
+hr {
+  clear: both;
+  border: 0;
+  height: 13px;
+  background-image: url('../img/hr.png');
+}
+
+h2 {
+  margin-top: 50px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 2.5em;
+}
+
+main p {
+  color: #333;
+  font-size: 1.2em;
+  line-height: 1.3em;
+  text-indent: 30px;
+  margin: 20px 0px;
+}
+
+.recipe {
+  letter-spacing: .1em;
+  font-family: 'Patrick Hand', cursive;
+  color: #666a42;
+  background-image: url("img/list-bg.png");
+  height: 260px;
+  padding: 37px 0 0 60px;
+  margin: 40px 0;
+}
+
+aside {
+  padding-top: 30px;
+  padding-bottom: 60px
+}
+
+footer section p{
+  padding: 50px 0;
+  line-height: 1.5em;
+  text-align: center;
+  color: #aaa;
+}
