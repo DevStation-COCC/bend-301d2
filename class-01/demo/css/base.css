@@ -1,0 +1,17 @@
+@import url('./reset.css');
+@import url('./layout.css');
+@import url('./module.css');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: auto;
+}
+
+article, nav, aside, footer, section {
+  position: relative;
+  outline: 1px solid white;
+  color: white;
+}

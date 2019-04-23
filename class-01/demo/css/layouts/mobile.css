@@ -1,0 +1,38 @@
+body {
+  max-width: 480px;
+}
+
+body * {
+  background-color: grey;
+}
+
+.content {
+  width: 100%;
+}
+
+.nav {
+  width: 100%;
+  height: 75px;
+}
+
+.sub-nav {
+  width: 100%;
+  height: 150px;
+}
+
+.feature {
+  width: 100%;
+  height: 125px;
+}
+
+.tile {
+  width: 50%;
+  height: 250px;
+
+  float: left;
+}
+
+.footer {
+  clear: both;
+  height: 80px;
+}
