@@ -9,11 +9,11 @@ Then, write a function named speaker that takes in a string and a callback funct
 ------------------------------------------------------------------------------------------------ */
 
 const greeting = (word) => {
-  // Solution code here...
+  return word.toUpperCase();
 };
 
 const speaker = (message, callback) => {
-  // Solution code here...
+  return callback(message);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -33,11 +33,15 @@ Return the modified array.
 ------------------------------------------------------------------------------------------------ */
 
 const addValues = (arr, value) => {
-  // Solution code here...
+  arr.push(value);
 };
 
 const addNumbers = (num, arr, times, callback) => {
-  // Solution code here...
+  for(let i = 0; i < times; i++){
+    callback(arr, num);
+  }
+
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -136,7 +140,8 @@ Run your tests from the console: jest challenges-01.test.js
 
 describe('Testing challenge 1', () => {
   test('It should return the message with all uppercase characters', () => {
-    expect(speaker('hello 301 students!', greeting)).toStrictEqual('HELLO 301 STUDENTS!');
+    let result = speaker('hello 301 students!', greeting);
+    expect(result).toStrictEqual('HELLO 301 STUDENTS!');
   });
 });
 

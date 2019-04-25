@@ -1,0 +1,36 @@
+@media (min-width: 960px){
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  main {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+  }
+
+  main > nav {
+    order: 1;
+    width: 150px;
+  }
+
+  main > .content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    order: 2;
+  }
+
+  main > aside {
+    order: 3;
+    width: 150px;
+  }
+
+  .deck {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between;
+  }
+}
