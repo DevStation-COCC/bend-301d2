@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <%- include('../layout/head') %>
+  <body>
+    <%- include('../layout/header') %>
+
+    <main>
+      <section class="task-view container">
+        <ul class="task-list">
+          <li class="task-item" data-id="<%= task.id %>">
+            <h4>Task: <%= task.title %></h4>
+            <p>Description: <%= task.description %></p>
+            <p>Contact: <%= task.contact%></p>
+            <p>Status: <%= task.status%></p>
+            <p>Category: <%= task.category%></p>
+            <p>Complete this task by: <%= task.due%></p>
+          </li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>
