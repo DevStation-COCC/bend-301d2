@@ -1,0 +1,22 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "description": "Refactor `index.ejs` to into `layout/head.ejs` and `layout/header.ejs`",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "watch": "nodemon server.js",
+    "seed": "psql -d task_app -f schema.sql"
+  },
+  "keywords": [],
+  "author": "Adam DuQuette <duquetteadam@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "pg": "^7.10.0",
+    "superagent": "^5.0.5"
+  }
+}
