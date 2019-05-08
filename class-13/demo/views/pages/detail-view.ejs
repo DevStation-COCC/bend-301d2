@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('../layout/head') %>
+  </head>
+  <body>
+    <%- include('../layout/header') %>
+    <main>
+      <section class="task-view container">
+        <ul id="task-list">
+          <li class="task-item" data-id="<%= task.id %>">
+            <h4>Task: <%= task.title %></h4>
+            <p>Description: <%= task.description %></p>
+            <p>Contact person: <%= task.contact %></p>
+            <p>Completion status: <%= task.status %></p>
+            <p>Category: <%= task.category %></p>
+          </li>
+        </ul>
+      </section>
+      <section class="task-form-view hide-me container">
+        <%- include('form', {formAction: 'Update', task: task}) %>
+      </section>
+    </main>
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+    <script src="/js/app.js"></script>
+  </body>
+</html>
