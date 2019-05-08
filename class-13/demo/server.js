@@ -17,16 +17,15 @@ const PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 // Specify a directory for static resources
 app.use(express.static('./public'));
-
-// Middleware to handle PUT and DELETE
-app.use(methodOverride((request, response) => {
-  if (request.body && typeof request.body === 'object' && '_method' in request.body) {
+app.use(methodOverride(function (req, res) {
+  if (req.body && typeof req.body === 'object' && '_method' in req.body) {
     // look in urlencoded POST bodies and delete it
-    let method = request.body._method;
-    delete request.body._method;
-    return method;
+    console.log(req.body._method);
+    var method = req.body._method
+    delete req.body._method
+    return method
   }
-}))
+}));
 
 // Database Setup
 const client = new pg.Client(process.env.DATABASE_URL);
@@ -39,10 +38,9 @@ app.set('view engine', 'ejs');
 // API Routes
 app.get('/', getTasks);
 app.get('/tasks/:task_id', getOneTask);
+app.put('/update/:task_id', updateTask);
 app.get('/add', showForm);
 app.post('/add', addTask);
-
-app.put('/update/:task_id', updateTask);
 
 app.get('*', (req, res) => res.status(404).send('This route does not exist'));
 
@@ -65,7 +63,6 @@ function getOneTask(request, response) {
 
   return client.query(SQL, values)
     .then(result => {
-      // console.log('single', result.rows[0]);
       return response.render('pages/detail-view', { task: result.rows[0] });
     })
     .catch(err => handleError(err, response));
@@ -86,17 +83,17 @@ function addTask(request, response) {
     .catch(err => handleError(err, response));
 }
 
-function updateTask(request, response) {
-  // destructure variables
+function updateTask(request, response){
   let { title, description, category, contact, status } = request.body;
-  // need SQL to update the specific task that we were on
+
   let SQL = `UPDATE tasks SET title=$1, description=$2, category=$3, contact=$4, status=$5 WHERE id=$6;`;
-  // use request.params.task_id === whatever task we were on
+
   let values = [title, description, category, contact, status, request.params.task_id];
 
   client.query(SQL, values)
     .then(response.redirect(`/tasks/${request.params.task_id}`))
     .catch(err => handleError(err, response));
+
 }
 
 function handleError(error, response) {
